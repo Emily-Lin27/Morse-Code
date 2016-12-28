@@ -15,7 +15,7 @@ char input[5000]; // stores user input
 String morse[26] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.","...", "-", "..-", "...-", ".--","-..-","-.--","--.."};
 
 boolean hadSpace = true;  // keeps track of consecutive spaces
-int waitTime = 4000;  
+const int waitTime = 4000;
 
 void setup () { 
   Serial.begin(9600); 
@@ -58,13 +58,13 @@ void readChar(int num){ // Reads each character
    for (int i = 0; i < morse[num].length(); i++){
        if (morse[num].charAt(i) == '.'){
           digitalWrite(LED, HIGH);
-          delay(1000);  // leaves LED on for 1 second 
+          delay(waitTime/4);  // leaves LED on for 1 second
        } else {
           digitalWrite(LED, HIGH); 
           delay(3000);  // leaves LED on for 3 seconds 
        }
        digitalWrite(LED, LOW); 
-       delay(1000); // One dot length wait between dots and dashes 
+       delay(waitTime/4); // One dot length wait between dots and dashes
    }
 }
 
